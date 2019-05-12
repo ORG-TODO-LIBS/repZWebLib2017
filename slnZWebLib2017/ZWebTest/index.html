@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="ZHttp/zhttp.js"></script>
+    <script>
+
+        function sub() {
+            // 创建 XMLHttpRequest 对象
+            var xhr = new XMLHttpRequest();
+
+            //// Get 请求测试
+            //var isasync = true;
+            //var method = "GET";
+            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx?C3=88a";
+            //xhr.open("GET", url, isasync);
+            //xhr.send();
+
+            //// Post 请求测试 application/x-www-form-urlencoded
+            //var isasync = true;
+            //var method = "POST";
+            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx";
+            //xhr.onreadystatechange = function () {
+            //    if (xhr.readyState == 4 && xhr.status == 200) {
+            //        console.log(xhr.responseText);
+            //    } else {
+            //        console.log('xhr.readyState = ' + xhr.readyState);
+            //    }
+            //};
+            //xhr.open(method, url, isasync);
+            //xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //xhr.send("D1=123&D2=234&C3=99a");
+
+            // Post 请求测试 multipart/form-data
+            //var isasync = true;
+            //var method = "POST";
+            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx";
+            //xhr.onreadystatechange = function () {
+            //    if (xhr.readyState == 4 && xhr.status == 200) {
+            //        console.log(xhr.responseText);
+            //    } else {
+            //        console.log('xhr.readyState = ' + xhr.readyState);
+            //    }
+            //};
+            //xhr.upload.onprogress = function (ev) {
+            //    if (ev.lengthComputable) {
+            //        console.log(ev.loaded, ev.total);
+            //    }
+            //};
+            //xhr.open(method, url, isasync);
+            ////xhr.setRequestHeader("Content-type", "multipart/form-data"); // 当 send formData 时，不要指定请求头
+            //var fd = new FormData();
+            //fd.append("D1", "abc");
+            //fd.append("D2", "bcd");
+            //fd.append("C3", "def");
+            //fd.append("F1", document.getElementById("F1").files[0]);
+            //xhr.send(fd);
+
+            var fd = new FormData();
+            fd.append("D1", "abc");
+            fd.append("D2", "bcd");
+            fd.append("C3", "def");
+            fd.append("F1", document.getElementById("F1").files[0]);
+            window.zhttp.post({
+                async: true,
+                url: 'http://localhost:33015/Handlers/TestHandler1.ashx',
+                fd: fd,
+                success: function (data) {
+                    console.log(data);
+                },
+                onprogress: function (loaded, total) {
+                    console.log(loaded, total);
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data" method="post" action="http://localhost:33015/Handlers/TestHandler1.ashx?C3=88a" >
+        <input name="D1" value="" />
+        <input name="D2" value="" />
+        <input name="F1" id="F1" type="file" />
+        <input type="button" onclick="sub()" value="Sub" />
+    </form>
+</body>
+</html>
