@@ -62,17 +62,27 @@
             fd.append("D2", "bcd");
             fd.append("C3", "def");
             fd.append("F1", document.getElementById("F1").files[0]);
-            window.zhttp.post({
-                async: true,
-                url: 'http://localhost:33015/Handlers/TestHandler1.ashx',
-                fd: fd,
-                success: function (data) {
-                    console.log(data);
-                },
-                onprogress: function (loaded, total) {
-                    console.log(loaded, total);
-                }
+            var async = true;
+            var url = 'http://localhost:33015/Handlers/TestHandler1.ashx';
+            
+
+            Promise.all([
+
+                window.zhttp.post_promise({
+                    async: async,
+                    url: url,
+                    fd: fd
+                }, (x, y) => {
+                    console.log(x, y);
+                }),
+
+                Promise.resolve(3)
+
+            ]).then(function () {
+                console.log(arguments);
             });
+           
+            
         };
     </script>
 </head>

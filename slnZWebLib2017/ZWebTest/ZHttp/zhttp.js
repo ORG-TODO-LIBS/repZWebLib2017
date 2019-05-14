@@ -26,6 +26,22 @@
         }
         });
      */
+
+    post_promise(para, process) {
+
+        return new Promise((resolve, reject) => {
+
+            window.zhttp.post({
+                async: para.async == true ? true : false,
+                url: para.url,
+                fd: para.fd,
+                success: resolve,
+                onprogress: process
+            });
+
+        });
+    },
+
     post(para) {
 
         // 创建 XMLHttpRequest 对象
