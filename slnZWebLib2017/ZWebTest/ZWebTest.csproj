@@ -70,6 +70,8 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="Web.config" />
+    <Content Include="ZEncrypt\CryptoJS\aes.js" />
+    <Content Include="ZEncrypt\zaes.js" />
     <Content Include="ZHttp\zhttp.js" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +86,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

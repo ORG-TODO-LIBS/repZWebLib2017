@@ -1,5 +1,10 @@
 ﻿window.zhttp = {    
 
+    /**
+     * 通过 Promise 对象方式发送 post 请求。其返回值可使用 Promise.all 管理。
+     * @param {any} para 一个对象，包含 async, url, fd 三个必选属性，及一些可选属性
+     * @param {any} process 进度条回调函数，它有两个参数:loaded 及 total
+     */
     post_promise(para, process) {
 
         return new Promise((resolve, reject) => {

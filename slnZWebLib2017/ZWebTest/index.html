@@ -4,7 +4,19 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="ZHttp/zhttp.js"></script>
+
+    <!-- zaes.js 相关 -->
+    <script src="ZEncrypt/CryptoJS/aes.js"></script>
+    <script src="ZEncrypt/zaes.js"></script>
+    <!-- //zaes.js 相关 -->
+
     <script>
+
+        // 测试 zaes
+        function testzaes() {
+            var enced = window.zaes.enc({ input: '0000MK4ZJF10PRO19*#8' });
+            console.log(enced);
+        }
 
         // 测试 post_promise 及使用 Promise.all()
         function sub() {
@@ -32,17 +44,18 @@
             ]).then(function () {
                 console.log(arguments);
             });
-           
-            
+
+
         };
     </script>
 </head>
 <body>
-    <form enctype="multipart/form-data" method="post" action="http://localhost:33015/Handlers/TestHandler1.ashx?C3=88a" >
+    <form enctype="multipart/form-data" method="post" action="http://localhost:33015/Handlers/TestHandler1.ashx?C3=88a">
         <input name="D1" value="" />
         <input name="D2" value="" />
         <input name="F1" id="F1" type="file" />
         <input type="button" onclick="sub()" value="Sub" />
+        <input type="button" onclick="testzaes()" value="测试 zaes" />
     </form>
 </body>
 </html>
