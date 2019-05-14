@@ -11,6 +11,7 @@
     <!-- //zaes.js 相关 -->
 
     <script src="ZLib/zpath.js"></script>
+    <script src="ZLib/zfile.js"></script>
 
     <script>
 
@@ -21,6 +22,8 @@
             var dec = window.zaes.dec({ input: enced });
 
             console.log(window.zpath.ReNameRepeatFile(dec));
+
+            console.log(window.zfile.convertToSizeStr('113355224'));
 
         }
 
