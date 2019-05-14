@@ -16,6 +16,8 @@
         function testzaes() {
             var enced = window.zaes.enc({ input: '0000MK4ZJF10PRO19*#8' });
             console.log(enced);
+            var dec = window.zaes.dec({ input: enced });
+            console.log(dec);
         }
 
         // 测试 post_promise 及使用 Promise.all()
