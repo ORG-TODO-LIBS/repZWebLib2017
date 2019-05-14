@@ -1,31 +1,4 @@
-﻿window.zhttp = {
-
-    // para.async
-    // para.url
-    // para.fd
-    // [para.success]
-    // [para.error]
-    // [para.sending]
-    // [para.onprogress]
-    // example:
-    /*
-     var fd = new FormData();
-            fd.append("D1", "abc");
-            fd.append("D2", "bcd");
-            fd.append("C3", "def");
-            fd.append("F1", document.getElementById("F1").files[0]);
-            window.zhttp.post({
-            async: true,
-            url: 'http://localhost:33015/Handlers/TestHandler1.ashx',
-            fd: fd,
-            success: function (data) {
-            console.log(data);
-        },
-            onprogress: function (loaded, total) {
-            console.log(loaded, total);
-        }
-        });
-     */
+﻿window.zhttp = {    
 
     post_promise(para, process) {
 
