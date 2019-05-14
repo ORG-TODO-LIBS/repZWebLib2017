@@ -10,14 +10,18 @@
     <script src="ZEncrypt/zaes.js"></script>
     <!-- //zaes.js 相关 -->
 
+    <script src="ZLib/zpath.js"></script>
+
     <script>
 
         // 测试 zaes
         function testzaes() {
             var enced = window.zaes.enc({ input: '0000MK4ZJF10PRO19*#8' });
-            console.log(enced);
+            //console.log(enced);
             var dec = window.zaes.dec({ input: enced });
-            console.log(dec);
+
+            console.log(window.zpath.ReNameRepeatFile(dec));
+
         }
 
         // 测试 post_promise 及使用 Promise.all()
