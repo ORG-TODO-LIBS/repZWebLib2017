@@ -6,56 +6,8 @@
     <script src="ZHttp/zhttp.js"></script>
     <script>
 
+        // 测试 post_promise 及使用 Promise.all()
         function sub() {
-            // 创建 XMLHttpRequest 对象
-            var xhr = new XMLHttpRequest();
-
-            //// Get 请求测试
-            //var isasync = true;
-            //var method = "GET";
-            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx?C3=88a";
-            //xhr.open("GET", url, isasync);
-            //xhr.send();
-
-            //// Post 请求测试 application/x-www-form-urlencoded
-            //var isasync = true;
-            //var method = "POST";
-            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx";
-            //xhr.onreadystatechange = function () {
-            //    if (xhr.readyState == 4 && xhr.status == 200) {
-            //        console.log(xhr.responseText);
-            //    } else {
-            //        console.log('xhr.readyState = ' + xhr.readyState);
-            //    }
-            //};
-            //xhr.open(method, url, isasync);
-            //xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            //xhr.send("D1=123&D2=234&C3=99a");
-
-            // Post 请求测试 multipart/form-data
-            //var isasync = true;
-            //var method = "POST";
-            //var url = "http://localhost:33015/Handlers/TestHandler1.ashx";
-            //xhr.onreadystatechange = function () {
-            //    if (xhr.readyState == 4 && xhr.status == 200) {
-            //        console.log(xhr.responseText);
-            //    } else {
-            //        console.log('xhr.readyState = ' + xhr.readyState);
-            //    }
-            //};
-            //xhr.upload.onprogress = function (ev) {
-            //    if (ev.lengthComputable) {
-            //        console.log(ev.loaded, ev.total);
-            //    }
-            //};
-            //xhr.open(method, url, isasync);
-            ////xhr.setRequestHeader("Content-type", "multipart/form-data"); // 当 send formData 时，不要指定请求头
-            //var fd = new FormData();
-            //fd.append("D1", "abc");
-            //fd.append("D2", "bcd");
-            //fd.append("C3", "def");
-            //fd.append("F1", document.getElementById("F1").files[0]);
-            //xhr.send(fd);
 
             var fd = new FormData();
             fd.append("D1", "abc");
@@ -64,7 +16,6 @@
             fd.append("F1", document.getElementById("F1").files[0]);
             var async = true;
             var url = 'http://localhost:33015/Handlers/TestHandler1.ashx';
-            
 
             Promise.all([
 
