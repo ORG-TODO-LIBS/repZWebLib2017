@@ -15,6 +15,26 @@
 
     <script>
 
+        function on_dragleave(ev) {
+            ev.preventDefault();
+        }
+
+        function on_dragenter(ev) {
+            ev.preventDefault();
+        }
+
+        function on_dragover(ev) {
+            ev.preventDefault();
+        }
+
+        function on_drop(ev) {
+            ev.preventDefault();
+            window.drophelper = new window.zfile.dropper(ev.dataTransfer.items);
+            setTimeout(() => {
+                console.log(window.drophelper.readresult());
+            }, 3000);
+        }
+
         // 测试 zaes
         function testzaes() {
             var enced = window.zaes.enc({ input: '0000MK4ZJF10PRO19*#8' });
@@ -66,5 +86,11 @@
         <input type="button" onclick="sub()" value="Sub" />
         <input type="button" onclick="testzaes()" value="测试 zaes" />
     </form>
+    <div style="height:100%;width:600px;position:fixed;z-index:2;background-color:yellow"
+         ondragover="on_dragover(event)"
+         ondragenter="on_dragenter(event)"
+         ondragleave="on_dragleave(event)"
+         ondrop="on_drop(event)"
+         ></div>
 </body>
 </html>
