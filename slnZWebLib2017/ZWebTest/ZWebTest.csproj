@@ -75,6 +75,7 @@
     <Content Include="ZHttp\zhttp.js" />
     <Content Include="ZLib\zfile.js" />
     <Content Include="ZLib\zpath.js" />
+    <Content Include="ZLib\zwin.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
