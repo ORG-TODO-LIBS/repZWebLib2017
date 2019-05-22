@@ -73,6 +73,7 @@
     <Content Include="ZEncrypt\CryptoJS\aes.js" />
     <Content Include="ZEncrypt\zaes.js" />
     <Content Include="ZHttp\zhttp.js" />
+    <Content Include="ZLib\zdate.js" />
     <Content Include="ZLib\zfile.js" />
     <Content Include="ZLib\zpath.js" />
     <Content Include="ZLib\zwin.js" />
