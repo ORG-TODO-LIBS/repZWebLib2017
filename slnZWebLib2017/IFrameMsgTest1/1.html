@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function SendToParent() {
+            // 向父窗框返回响应结果
+            window.parent.postMessage({
+                act: 'response',
+                msg: {
+                    answer: '我接收到啦！'
+                }
+            }, '*');
+        }
+
+        // 注册消息事件监听，对来自 myIframe 框架的消息进行处理
+        window.addEventListener('message', function(e){
+            if (e.data.act == 'article') {
+                alert(e.data.msg.subject);
+            } else {
+                alert('未定义的消息: '+ e.data.act);
+            }
+        }, false);
+    </script>
+</head>
+<body>
+    this is 1.html
+    <input type="button" onclick="SendToParent()" value="向父窗体发送" />
+</body>
+</html>

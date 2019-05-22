@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function SendToChild() {
+            var ifrm = document.getElementById("ifr");
+            var data = {
+                act: 'article',  // 自定义的消息类型、行为，用于switch条件判断等。。
+                msg: {
+                    subject: '跨域通信消息收到了有木有~',
+                    author: 'CSDN-神神的蜗牛'
+                }
+            };
+            // 不限制域名则填写 * 星号, 否则请填写对应域名如
+            ifrm.contentWindow.postMessage(data, '*');
+        }
+        window.onload = function () {
+
+            // 注册消息事件监听，对来自 myIframe 框架的消息进行处理
+            window.addEventListener('message', function (e) {
+                if (e.data.act == 'response') {
+                    alert(e.data.msg.answer);
+                } else {
+                    alert('未定义的消息: ' + e.data.act);
+                }
+            }, false);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="SendToChild()" value="向子窗体发送" />
+    <div>this is 2.html</div>
+    <iframe id="ifr" src="http://localhost:7886/1.html" style="width:100%;height:50%;"/>
+</body>
+
+</html>
